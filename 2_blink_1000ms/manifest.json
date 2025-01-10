@@ -1,0 +1,16 @@
+{
+    "name": "Hello World Firmware",
+    "builds": [
+      {
+        "chipFamily": "ESP32-S3",
+        "improv": false,
+        "parts": [
+          { "path": "blink_1000ms.ino.bootloader.bin", "offset": 0 },
+          { "path": "blink_1000ms.ino.partitions.bin", "offset": 32768 },
+          { "path": "boot_app0.bin", "offset": 57344 },
+          { "path": "blink_1000ms.ino.bin", "offset": 65536 }
+        ]
+      }
+    ]
+  }
+  

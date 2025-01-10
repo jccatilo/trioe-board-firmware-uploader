@@ -1,23 +1,48 @@
 <!DOCTYPE html>
-<html>
-
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRIOE online firmware uploader by JC Catilo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-    <h1>Sample project for demoing ESP Web Tools</h1>
+    <div class="wrapper">
+        <header class="header">
+            <h1>TRIOE online firmware uploader</h1>
+            <p>pre-requisite: A browser, type C data cable, and a TRIOE Board.This will not work on other boards. Learn more from <a href="https://trioe.dev"><mark>https://trioe.dev</mark></a> </p>
+            <i>note: This will not work on other boards. Also, the current codes are not editable as of the moment. Stay tuned for updates.</i>
+        </header>
+    <div class="container">
+        <div class="card">
+            <img src="/assets/img/1_hello_world.png" alt="Hello World Thumbnail">
+            <div class="card-content">
+                <h3 class="card-title">Hello World</h3>
+                <p class="card-text">This uploads a "hello world" program from our website.</p>
+                <p class="card-text">You can view the text by clicking on "view logs" after uploading the code.</p>
+                
+                <esp-web-install-button id="installButton" manifest="1_hello_world/manifest.json"></esp-web-install-button>
+            </div>
+        </div>
 
-    <div id="main" style="display: none;">
+        <div class="card">
+            <img src="/assets/img/2_blink_1000ms.png" alt="Blinky Thumbnail">
+            <div class="card-content">
+                <h3 class="card-title">Blink 1000ms</h3>
+                <p class="card-text">This uploads a "blink LED_BUILTIN" program with a 1 second delay.</p>
+                <esp-web-install-button id="installButton" manifest="2_blink_1000ms/manifest.json"></esp-web-install-button>
+            </div>
+        </div>
+        <div class="card">
+            <img src="/assets/img/3_blink_1000ms_with_serial.png" alt="Blinky with Serialprintln() Thumbnail">
+            <div class="card-content">
+                <h3 class="card-title">Blink 1000ms with Serialprintln()</h3>
+                <p class="card-text">This uploads a "blink LED_BUILTIN" program with a 1 second delay and also utilizes serial.println() functionality.</p>
+                <esp-web-install-button id="installButton" manifest="3_blink_1000ms_with_serial/manifest.json"></esp-web-install-button>
+            </div>
+        </div>
 
-        <br>
-        <script
-            type="module"
-            src="https://cdn.jsdelivr.net/npm/esp-web-tools@latest/dist/web/install-button.js?module">
-        </script>
-        <esp-web-install-button id="installButton" manifest="test/manifest.json"></esp-web-install-button>
-        <br>
-        <span>NOTE: Make sure to close anything using your devices com port (e.g. Serial monitor)</span>
-    </div>
-    <div id="notSupported" style="display: none;">
-        Your browser does not support the Web Serial API. Try Chrome
+        <!-- Add more cards here -->
     </div>
     
 
@@ -30,6 +55,10 @@
             document.getElementById("main").style.display = 'none';
         }
     </script>
+    <script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/esp-web-tools@latest/dist/web/install-button.js?module">
+</script>
 
 </body>
 
