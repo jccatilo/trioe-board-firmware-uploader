@@ -5,10 +5,10 @@
         "chipFamily": "ESP32-S3",
         "improv": false,
         "parts": [
-          { "path": "hello_word.ino.bootloader.bin", "offset": 0 },
-          { "path": "hello_word.ino.partitions.bin", "offset": 32768 },
+          { "path": "hello_word_trioe.ino.bootloader.bin", "offset": 0 },
+          { "path": "hello_word_trioe.ino.partitions.bin", "offset": 32768 },
           { "path": "boot_app0.bin", "offset": 57344 },
-          { "path": "hello_word.ino.bin", "offset": 65536 }
+          { "path": "hello_word_trioe.ino.bin", "offset": 65536 }
         ]
       }
     ]
