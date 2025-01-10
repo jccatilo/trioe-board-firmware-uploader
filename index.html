@@ -1,18 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ESP Web Tool Test</title>
-  <script type="module" src="https://unpkg.com/esp-web-tools@3.4.2/dist/web/install-button.js?module"></script>
-</head>
-<body>
-  <h1>ESP-Web-Tool-Test</h1>
-  <p>Click the button below to flash firmware to your ESP32-S3:</p>
-  
-  <!-- Install button to flash firmware -->
-  <esp-web-install-button manifest="tests/manifest.json"></esp-web-install-button>
+<html>
 
-  <p id="status"></p>
+
+<body>
+    <h1>Sample project for demoing ESP Web Tools</h1>
+
+    <div id="main" style="display: none;">
+
+        <br>
+        <script
+            type="module"
+            src="https://cdn.jsdelivr.net/npm/esp-web-tools@latest/dist/web/install-button.js?module">
+        </script>
+        <esp-web-install-button id="installButton" manifest="test/manifest.json"></esp-web-install-button>
+        <br>
+        <span>NOTE: Make sure to close anything using your devices com port (e.g. Serial monitor)</span>
+    </div>
+    <div id="notSupported" style="display: none;">
+        Your browser does not support the Web Serial API. Try Chrome
+    </div>
+    
+
+    <script>
+        if(navigator.serial){
+            document.getElementById("notSupported").style.display = 'none';
+            document.getElementById("main").style.display = 'block';
+        } else {
+            document.getElementById("notSupported").style.display = 'block';
+            document.getElementById("main").style.display = 'none';
+        }
+    </script>
+
 </body>
+
 </html>
