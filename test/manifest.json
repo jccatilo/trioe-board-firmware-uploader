@@ -1,0 +1,16 @@
+{
+    "name": "Hello TRIOE",
+    "builds": [
+      {
+        "chipFamily": "ESP32-S3",
+        "improv": false,
+        "parts": [
+          { "path": "hello_trioe.ino.bootloader.bin", "offset": 4096 },
+          { "path": "hello_trioe.ino.partitions.bin", "offset": 32768 },
+          { "path": "boot_app0.bin", "offset": 57344 },
+          { "path": "hello_trioe.ino.bin", "offset": 65536 }
+        ]
+      }
+    ]
+  }
+  
