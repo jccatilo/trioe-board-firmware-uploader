@@ -1,5 +1,5 @@
 {
-    "name": "Hello World Firmware",
+    "name": "Blink 1000ms Firmware",
     "builds": [
       {
         "chipFamily": "ESP32-S3",

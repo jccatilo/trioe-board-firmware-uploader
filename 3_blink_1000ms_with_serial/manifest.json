@@ -1,5 +1,5 @@
 {
-    "name": "Hello World Firmware",
+    "name": "Blink with Serial.println()",
     "builds": [
       {
         "chipFamily": "ESP32-S3",
