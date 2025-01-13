@@ -60,6 +60,8 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
+    justify-content: space-between; /* Space between content and button */
+    height: 100%; /* Ensures consistent card height */
     align-items: center;
     text-align: center;
 }
@@ -76,6 +78,7 @@ body {
 
 .card-content {
     padding: 15px;
+    
 }
 
 .card-title {
@@ -94,7 +97,7 @@ body {
     background-color: #00d1b2;
     color: #1e1e2f;
     border: none;
-    border-radius: 5px;
+    border-radius: 48px;
     padding: 10px 20px;
     font-size: 1rem;
     cursor: pointer;
@@ -104,6 +107,7 @@ body {
 .card button:hover {
     background-color: #02f0cc;
     transform: scale(1.05);
+    
 }
 
 /* Responsive Design */
@@ -195,3 +199,5 @@ button:hover {
     width: 16px;
     height: 16px;
   }
+
+
