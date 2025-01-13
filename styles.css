@@ -170,4 +170,28 @@ button:hover {
     cursor: pointer;
 }
 
+.arrow-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #00d1b2;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
 
+  .arrow-button:hover {
+    background-color: #88c9bf;
+  }
+
+  .arrow-button svg {
+    margin-right: 10px; /* Adjust for left arrow */
+    fill: rgb(0, 0, 0);
+    width: 16px;
+    height: 16px;
+  }
