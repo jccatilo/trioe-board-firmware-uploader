@@ -9,58 +9,96 @@
 <body>
     <div class="wrapper">
         <header class="header">
-            <h1>TRIOE online firmware uploader</h1>
-            <p>pre-requisite: A browser, type C data cable, and a TRIOE Board.This will not work on other boards. Learn more from <a href="https://trioe.dev"><mark>https://trioe.dev</mark></a> </p>
-            <i>note: This will not work on other boards. Also, the current codes are not editable as of the moment. Stay tuned for updates.</i>
-            <i>Make sure no other software on your computer is accessing the TRIOE board e.g. Arduino IDE, Visual Studio Code, etc.</i>
+            <h1>TRIOE Online Firmware Uploader</h1>
+            <p>Pre-requisite: A browser, Type-C data cable, and a TRIOE Board. Learn more from <a href="https://trioe.dev"><mark>trioe.dev</mark></a></p>
+            <i>Note: This will not work on other boards. Ensure no other software (e.g., Arduino IDE, VS Code) is accessing the TRIOE board.</i>
         </header>
-    <div class="container">
-        <div class="card">
-            <img src="assets/img/1_hello_world.png" alt="Hello World Thumbnail">
-            <div class="card-content">
-                <h3 class="card-title">Hello World</h3>
-                <p class="card-text">This uploads a "hello world" program from our website.</p>
-                <p class="card-text">You can view the text by clicking on "view logs" after uploading the code.</p>
-                
-                <esp-web-install-button id="installButton" manifest="1_hello_world/manifest_1.json"></esp-web-install-button>
+
+        <div class="container">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src="assets/img/1_hello_world.png" alt="Hello World Thumbnail">
+                <div class="card-content">
+                    <h3 class="card-title">Hello World</h3>
+                    <p>This uploads a "Hello World" program to your TRIOE Board.</p>
+                    <button class="image-btn" data-image="assets/img/basic_connection.png">View Schematic</button>
+                    <esp-web-install-button manifest="1_hello_world/manifest_1.json"></esp-web-install-button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <img src="assets/img/2_blink_1000ms.png" alt="Blink 1000ms Thumbnail">
+                <div class="card-content">
+                    <h3 class="card-title">Blink 1000ms</h3>
+                    <p>This uploads a "Blink LED" program with a 1-second delay.</p>
+                    <button class="image-btn" data-image="assets/img/basic_connection.png">View Schematic</button>
+                    <esp-web-install-button manifest="2_blink_1000ms/manifest_2.json"></esp-web-install-button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <img src="assets/img/3_blink_1000ms_with_serial.png" alt="Blink with Serial Thumbnail">
+                <div class="card-content">
+                    <h3 class="card-title">Blink with Serial.println()</h3>
+                    <p>Blink LED program with serial output functionality.</p>
+                    <button class="image-btn" data-image="assets/img/basic_connection.png">View Schematic</button>
+                    <esp-web-install-button manifest="3_blink_1000ms_with_serial/manifest_3.json"></esp-web-install-button>
+                </div>
             </div>
         </div>
 
-        <div class="card">
-            <img src="assets/img/2_blink_1000ms.png" alt="Blinky Thumbnail">
-            <div class="card-content">
-                <h3 class="card-title">Blink 1000ms</h3>
-                <p class="card-text">This uploads a "blink LED_BUILTIN" program with a 1 second delay.</p>
-                <esp-web-install-button id="installButton" manifest="2_blink_1000ms/manifest_2.json"></esp-web-install-button>
-            </div>
-        </div>
-        <div class="card">
-            <img src="assets/img/3_blink_1000ms_with_serial.png" alt="Blinky with Serial.println() Thumbnail">
-            <div class="card-content">
-                <h3 class="card-title">Blink 1000ms with Serialprintln()</h3>
-                <p class="card-text">This uploads a "blink LED_BUILTIN" program with a 1 second delay and also utilizes serial.println() functionality.</p>
-                <esp-web-install-button id="installButton" manifest="3_blink_1000ms_with_serial/manifest_3.json"></esp-web-install-button>
+        <!-- Popup for Images -->
+        <div id="popup">
+            <div class="popup-content">
+                <img id="popupImage" src="" alt="Schematic">
+                <button id="closePopup" class="close-btn">Close</button>
             </div>
         </div>
 
-        <!-- Add more cards here -->
+        <!-- Not Supported Message -->
+        <div id="notSupported" style="display: none; text-align: center; padding: 20px; color: red;">
+            Your browser does not support the Web Serial API. Please use a Chromium-based browser like Google Chrome.
+        </div>
     </div>
-    
 
     <script>
-        if(navigator.serial){
+        // Display appropriate content based on Web Serial API support
+        if (navigator.serial) {
             document.getElementById("notSupported").style.display = 'none';
-            document.getElementById("main").style.display = 'block';
         } else {
             document.getElementById("notSupported").style.display = 'block';
-            document.getElementById("main").style.display = 'none';
         }
+
+        // Popup functionality
+        const buttons = document.querySelectorAll('.image-btn');
+        const popup = document.getElementById('popup');
+        const popupImage = document.getElementById('popupImage');
+        const closePopup = document.getElementById('closePopup');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                popupImage.src = button.getAttribute('data-image');
+                popup.style.display = 'flex';
+            });
+        });
+
+        closePopup.addEventListener('click', () => {
+            popup.style.display = 'none';
+            popupImage.src = '';
+        });
     </script>
     <script
     type="module"
     src="https://cdn.jsdelivr.net/npm/esp-web-tools@latest/dist/web/install-button.js?module">
-</script>
 
+    
+</script>
 </body>
+
+
+
+
 
 </html>
